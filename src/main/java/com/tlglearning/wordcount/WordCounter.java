@@ -12,12 +12,6 @@ public class WordCounter {
   private  int totalWords;
 
 
-//  public WordCounter(String text) {
-//   String [] words = splitWords(text);
-//    counts = Collections.unmodifiableMap(countWords(words)); //Makes counts unmodifiable
-//
-//    }
-
   public Set<String> words (){
     return counts.keySet();
   }
