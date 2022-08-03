@@ -14,25 +14,25 @@ public class WordCounter {
 
   private final Map<String, Integer> counts = new HashMap<>();
 
-  private  int totalWords;
+  private int totalWords;
 
 
-  public Set<String> words (){
+  public Set<String> words() {
     return counts.keySet();
   }
 
-  public int get(String word){
-    return counts.getOrDefault(word ,0);
+  public int get(String word) {
+    return counts.getOrDefault(word, 0);
   }
 
   public Map<String, Integer> getCounts() {
     return Collections.unmodifiableMap(counts);
   }
 
-  public void add (String text){
+  public void add(String text) {
     String trimmedLine = text.trim();
     if (!trimmedLine.isEmpty()) {
-      String [] words = splitWords(trimmedLine);
+      String[] words = splitWords(trimmedLine);
       countWords(words);
     }
   }
@@ -41,7 +41,7 @@ public class WordCounter {
     return counts.size();
   }
 
-  public int total(){
+  public int total() {
     return totalWords;
   }
 
@@ -59,16 +59,16 @@ public class WordCounter {
 
   //Business/Helper Methods
   //Method to countWords
- void countWords(String[] words) {
+  void countWords(String[] words) {
 
-   Arrays
-       .stream(words)
-       .map(String::trim)
-       .filter((s) -> !s.isEmpty())
-       .filter((word) -> word.length() > 5)
-       .filter((s) -> !BORING_WORDS.contains(s))
+    Arrays
+        .stream(words)
+        .map(String::trim)
+        .filter((s) -> !s.isEmpty())
+        .filter((word) -> word.length() > 5)
+        .filter((s) -> !BORING_WORDS.contains(s))
 //        .filter(Predicate.not(String::isEmpty))
-       .forEach((word) -> counts.put(word, 1 + counts.getOrDefault(word, 0)));
+        .forEach((word) -> counts.put(word, 1 + counts.getOrDefault(word, 0)));
 
 //    for (String word : words){
 //
@@ -77,8 +77,8 @@ public class WordCounter {
 //      // otherwise, get the current value, add 1 to it , and update the map with the new value
 //      counts.put(word, get(word) +1);
 //      totalWords++;
-    }
   }
+}
 //Method to split words and regenerate expressions
 
 
